@@ -1,0 +1,1 @@
+WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false

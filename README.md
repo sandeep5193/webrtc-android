@@ -19,6 +19,9 @@ additional patches have been applied.
 
 ## Installing
 
+Currently waiting for publication to Maven Central...
+
+<!--
 This package is available on Maven Central (starting with version 107.0.0). It
 includes the WebRTC PeerConnection build for ARM and x86, both 32 and 64 bit
 builds.
@@ -39,6 +42,7 @@ Maven:
   <type>pom</type>
 </dependency>
 ```
+-->
 
 
 ## Target Commits
@@ -48,9 +52,12 @@ These are the target commits for the releases:
 - v107.0.0 [`eef098d1c7d50613d8bff2467d674525a9d0c57c`](https://chromium.googlesource.com/external/webrtc/+/eef098d1c7d50613d8bff2467d674525a9d0c57c)
 
 
-## How This Library is Built
+## How This Library Is Built
 
-The builds are created using [webrtc-build-docker](https://github.com/threema-ch/webrtc-build-docker).
+The builds are created using
+[webrtc-build-docker](https://github.com/threema-ch/webrtc-build-docker)
+(through `build-final.sh` to keep things as reproducible as possible). No
+custom patches are applied.
 
 Build flags:
 
@@ -61,12 +68,16 @@ Build flags:
 
 Releases to Maven Central are signed with the following PGP key:
 
+    TBD
+
+<!--
     pub   rsa4096 2016-09-06 [SC] [expires: 2026-09-04]
           E7AD D991 4E26 0E8B 35DF  B506 65FD E935 573A CDA6
     uid           Threema Signing Key <dev@threema.ch>
+-->
 
 
-## Local testing
+## Local Testing
 
 Create a local publication (usually at `$HOME/.m2/repository/`):
 

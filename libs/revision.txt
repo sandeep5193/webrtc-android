@@ -1,0 +1,29 @@
+commit eef098d1c7d50613d8bff2467d674525a9d0c57c
+Author:     Henrik Boström <hbos@webrtc.org>
+AuthorDate: Mon Sep 19 11:33:23 2022 +0200
+Commit:     WebRTC LUCI CQ <webrtc-scoped@luci-project-accounts.iam.gserviceaccount.com>
+CommitDate: Tue Oct 4 08:17:27 2022 +0000
+
+    [Merge-107] [Stats] Avoid DCHECK crashing if SSRCs are not unique.
+    
+    To properly handle SSRC collisions in non-BUNDLE we need to change how
+    RTP stats IDs are generated, but that is a riskier change to be dealt
+    with in a separate CL.
+    
+    For now, we just make sure that crashing is not a possibility during
+    SSRC collisions as a mitigation for https://crbug.com/1361612. This is
+    achieved by adding a TryAddStats() method to RTCStatsReport returning
+    whether successful.
+    
+    (cherry picked from commit da6297dc53cb2eaae7b1c5381652de9d707a7d48)
+    
+    Bug: chromium:1361612
+    Change-Id: I8577ae4c84a7c1eb3c7527e9efd8d1b0254269a3
+    Reviewed-on: https://webrtc-review.googlesource.com/c/src/+/275766
+    Reviewed-by: Harald Alvestrand <hta@webrtc.org>
+    Commit-Queue: Henrik Boström <hbos@webrtc.org>
+    Cr-Original-Commit-Position: refs/heads/main@{#38197}
+    Reviewed-on: https://webrtc-review.googlesource.com/c/src/+/277900
+    Reviewed-by: Evan Shrubsole <eshr@webrtc.org>
+    Cr-Commit-Position: refs/branch-heads/5304@{#4}
+    Cr-Branched-From: 024bd84ca1cf7d3650c27912a3b5bfbb54da152a-refs/heads/main@{#38083}
