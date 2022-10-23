@@ -1,4 +1,4 @@
-package ch.threema.webrtc;
+package dev.bargen.webrtc;
 
 /**
  * Empty class, just so that this Java library is not empty.

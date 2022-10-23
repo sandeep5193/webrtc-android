@@ -14,9 +14,9 @@ plugins {
 }
 
 ext {
-    groupId = 'ch.threema'
-    webrtcVersion = '100'
-    libraryVersion = '100.0.0'
+    groupId = 'dev.bargen'
+    webrtcVersion = '107'
+    libraryVersion = '107.0.0'
 }
 
 apply plugin: 'com.android.library'
@@ -28,7 +28,7 @@ android {
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 29
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -89,11 +89,11 @@ afterEvaluate {
 
                 pom {
                     name = 'WebRTC for Android'
-                    description = "WebRTC m${project.ext.webrtcVersion} builds for Android, with some custom patches applied"
-                    url = 'https://github.com/threema-ch/webrtc-android'
+                    description = "A vanilla WebRTC m${project.ext.webrtcVersion} build for Android"
+                    url = 'https://github.com/dbrgn/webrtc-android'
 
                     scm {
-                        url = 'https://github.com/threema-ch/webrtc-android'
+                        url = 'https://github.com/dbrgn/webrtc-android'
                     }
 
                     licenses {
@@ -111,7 +111,7 @@ afterEvaluate {
                         developer {
                             id = 'db'
                             name = 'Danilo Bargen'
-                            email = 'danilo.bargen@threema.ch'
+                            email = 'mail@bargen.dev'
                         }
                     }
                 }
