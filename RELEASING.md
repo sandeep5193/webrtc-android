@@ -3,7 +3,7 @@
 Set variables:
 
     export VERSION=X.Y.Z
-    export GPG_KEY=E7ADD9914E260E8B35DFB50665FDE935573ACDA6
+    export GPG_KEY=B993FF98A90C9AB1
 
 Ensure that `ossrhUsername` and `ossrhPassword` are defined in your
 `~/.gradle/gradle.properties` file.

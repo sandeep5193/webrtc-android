@@ -68,13 +68,10 @@ Build flags:
 
 Releases to Maven Central are signed with the following PGP key:
 
-    TBD
-
-<!--
-    pub   rsa4096 2016-09-06 [SC] [expires: 2026-09-04]
-          E7AD D991 4E26 0E8B 35DF  B506 65FD E935 573A CDA6
-    uid           Threema Signing Key <dev@threema.ch>
--->
+    pub   ed25519/0xB993FF98A90C9AB1 2022-11-19 [C]
+          Key fingerprint = 20EE 002D 778A E197 EF7D  0D2C B993 FF98 A90C 9AB1
+    uid                   [ultimate] Danilo Bargen <mail@dbrgn.ch>
+    sub   ed25519/0x73574DD095640FCF 2022-11-19 [S]
 
 
 ## Local Testing
