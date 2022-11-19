@@ -1,6 +1,7 @@
 # WebRTC Build for Android
 
 [![License](https://img.shields.io/badge/license-MIT%20%2F%20Apache%202.0-blue.svg)](https://github.com/dbrgn/webrtc-android)
+![Maven Central](https://img.shields.io/maven-central/v/dev.bargen/webrtc-android)
 
 This is a vanilla WebRTC build with Java bindings packaged for Android. No
 additional patches have been applied.
