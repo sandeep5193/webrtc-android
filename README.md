@@ -19,9 +19,6 @@ additional patches have been applied.
 
 ## Installing
 
-Currently waiting for publication to Maven Central...
-
-<!--
 This package is available on Maven Central (starting with version 107.0.0). It
 includes the WebRTC PeerConnection build for ARM and x86, both 32 and 64 bit
 builds.
@@ -42,7 +39,6 @@ Maven:
   <type>pom</type>
 </dependency>
 ```
--->
 
 
 ## Target Commits
