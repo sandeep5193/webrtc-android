@@ -42,6 +42,11 @@ Maven:
 ```
 
 
+## Demo
+
+You can find a very simple demo app here: <https://github.com/dbrgn/webrtc-demo>
+
+
 ## Target Commits
 
 These are the target commits for the releases:
