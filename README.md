@@ -27,7 +27,7 @@ builds.
 Gradle:
 
 ```groovy
-compile 'dev.bargen:webrtc-android:107.0.0'
+implementation 'dev.bargen:webrtc-android:107.0.0'
 ```
 
 Maven:
