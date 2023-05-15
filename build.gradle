@@ -15,8 +15,8 @@ plugins {
 
 ext {
     groupId = 'dev.bargen'
-    webrtcVersion = '112'
-    libraryVersion = '112.0.0'
+    webrtcVersion = '113'
+    libraryVersion = '113.0.0'
 }
 
 apply plugin: 'com.android.library'
