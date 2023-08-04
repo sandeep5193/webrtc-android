@@ -27,7 +27,7 @@ builds.
 Gradle:
 
 ```groovy
-implementation 'dev.bargen:webrtc-android:113.0.0'
+implementation 'dev.bargen:webrtc-android:114.0.0'
 ```
 
 Maven:
@@ -36,7 +36,7 @@ Maven:
 <dependency>
   <groupId>dev.bargen</groupId>
   <artifactId>webrtc-android</artifactId>
-  <version>113.0.0</version>
+  <version>114.0.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -51,6 +51,7 @@ You can find a very simple demo app here: <https://github.com/dbrgn/webrtc-demo>
 
 These are the target commits for the releases:
 
+- v114.0.0 [`151be743d4c83671565f9c1eada3f4a0b2e44dea`](https://chromium.googlesource.com/external/webrtc/+/151be743d4c83671565f9c1eada3f4a0b2e44dea)
 - v113.0.0 [`f6ab0b438e22ea30db7ad3fbf9f870b0d4506235`](https://chromium.googlesource.com/external/webrtc/+/f6ab0b438e22ea30db7ad3fbf9f870b0d4506235)
 - v112.0.0 [`d75b9e9ff07ee42841b4e416629c9fbd4b058905`](https://chromium.googlesource.com/external/webrtc/+/d75b9e9ff07ee42841b4e416629c9fbd4b058905)
 - v111.0.0 [`9089c0d814b11739a7e323c6a9cb03bfad149ea8`](https://chromium.googlesource.com/external/webrtc/+/9089c0d814b11739a7e323c6a9cb03bfad149ea8)
@@ -99,7 +100,7 @@ Include it in your project like this:
 ## License
 
     Copyright (c) 2019-2022 Threema GmbH
-    Copyright (c) 2022 Danilo Bargen
+    Copyright (c) 2022-2023 Danilo Bargen
 
     Licensed under the Apache License, Version 2.0, <see LICENSE-APACHE file>
     or the MIT license <see LICENSE-MIT file>, at your option. This file may not be
