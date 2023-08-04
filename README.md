@@ -27,7 +27,7 @@ builds.
 Gradle:
 
 ```groovy
-implementation 'dev.bargen:webrtc-android:114.0.0'
+implementation 'dev.bargen:webrtc-android:115.0.0'
 ```
 
 Maven:
@@ -36,7 +36,7 @@ Maven:
 <dependency>
   <groupId>dev.bargen</groupId>
   <artifactId>webrtc-android</artifactId>
-  <version>114.0.0</version>
+  <version>115.0.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -51,6 +51,7 @@ You can find a very simple demo app here: <https://github.com/dbrgn/webrtc-demo>
 
 These are the target commits for the releases:
 
+- v115.0.0 [`8fbabf340da0bd6c9f1450a8c4522c54390598a1`](https://chromium.googlesource.com/external/webrtc/+/8fbabf340da0bd6c9f1450a8c4522c54390598a1)
 - v114.0.0 [`151be743d4c83671565f9c1eada3f4a0b2e44dea`](https://chromium.googlesource.com/external/webrtc/+/151be743d4c83671565f9c1eada3f4a0b2e44dea)
 - v113.0.0 [`f6ab0b438e22ea30db7ad3fbf9f870b0d4506235`](https://chromium.googlesource.com/external/webrtc/+/f6ab0b438e22ea30db7ad3fbf9f870b0d4506235)
 - v112.0.0 [`d75b9e9ff07ee42841b4e416629c9fbd4b058905`](https://chromium.googlesource.com/external/webrtc/+/d75b9e9ff07ee42841b4e416629c9fbd4b058905)
