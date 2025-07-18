@@ -1,37 +1,19 @@
 # Releasing
 
-Set variables:
-
-    export VERSION=X.Y.Z
-    export GPG_KEY=B993FF98A90C9AB1
-
-Ensure that `ossrhUsername` and `ossrhPassword` are defined in your
-`~/.gradle/gradle.properties` file.
-
-Update version numbers:
-
-    vim -p build.gradle README.md
-
 Build:
 
     ./gradlew clean build
 
-Add and commit:
-
-    git commit -S${GPG_KEY} -m "Release v${VERSION}"
-
-Publish the library to Sonatype OSS / Maven Central:
+Publish the library for staging locally
 
     ./gradlew publish
 
-Afterwards, go to <https://s01.oss.sonatype.org/#stagingRepositories> and:
+Afterwards, go to build/staging-deply, sign all the files with gpg private key. javadoc and sources are not generated with current build, can be copied from previous builds as they won't change. 
 
-- Close the repository
-- Release the repository
+create a zip and deploy it manually https://central.sonatype.com/
 
-*Note: It may take a while until the release is visible!*
+Add and commit:
 
-Tag and push:
-
-    git tag -s -u ${GPG_KEY} v${VERSION} -m "Version ${VERSION}"
+    git commit -m "Release v134.0.0"
+    git tag -a v134.0.0 -m "Version 134.0.0"
     git push && git push --tags

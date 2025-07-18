@@ -1,7 +1,5 @@
 # WebRTC Build for Android
 
-[![License](https://img.shields.io/badge/license-MIT%20%2F%20Apache%202.0-blue.svg)](https://github.com/dbrgn/webrtc-android)
-![Maven Central](https://img.shields.io/maven-central/v/dev.bargen/webrtc-android)
 
 This is a vanilla WebRTC build with Java bindings packaged for Android. No
 additional patches have been applied.
@@ -27,16 +25,16 @@ builds.
 Gradle:
 
 ```groovy
-implementation 'dev.bargen:webrtc-android:115.0.0'
+implementation 'io.github.sandeep5193:webrtc-android:134.0.0'
 ```
 
 Maven:
 
 ```xml
 <dependency>
-  <groupId>dev.bargen</groupId>
+  <groupId>io.github.sandeep5193</groupId>
   <artifactId>webrtc-android</artifactId>
-  <version>115.0.0</version>
+  <version>134.0.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -51,6 +49,7 @@ You can find a very simple demo app here: <https://github.com/dbrgn/webrtc-demo>
 
 These are the target commits for the releases:
 
+- v134.0.0 [`8d78f5de6c27b2c793039989ea381f1428fb0100`](https://chromium.googlesource.com/external/webrtc/+/8d78f5de6c27b2c793039989ea381f1428fb0100)
 - v115.0.0 [`8fbabf340da0bd6c9f1450a8c4522c54390598a1`](https://chromium.googlesource.com/external/webrtc/+/8fbabf340da0bd6c9f1450a8c4522c54390598a1)
 - v114.0.0 [`151be743d4c83671565f9c1eada3f4a0b2e44dea`](https://chromium.googlesource.com/external/webrtc/+/151be743d4c83671565f9c1eada3f4a0b2e44dea)
 - v113.0.0 [`f6ab0b438e22ea30db7ad3fbf9f870b0d4506235`](https://chromium.googlesource.com/external/webrtc/+/f6ab0b438e22ea30db7ad3fbf9f870b0d4506235)
@@ -71,17 +70,17 @@ custom patches are applied.
 
 Build flags:
 
-    WEBRTC_COMPILE_ARGS: symbol_level=1 enable_libaom=false
+    WEBRTC_COMPILE_ARGS: symbol_level=1 debuggable_apks=false enable_libaom=false rtc_enable_protobuf=false rtc_include_dav1d_in_internal_decoder_factory=false
 
 
 ## Signatures
 
 Releases to Maven Central are signed with the following PGP key:
 
-    pub   ed25519/0xB993FF98A90C9AB1 2022-11-19 [C]
-          Key fingerprint = 20EE 002D 778A E197 EF7D  0D2C B993 FF98 A90C 9AB1
-    uid                   [ultimate] Danilo Bargen <mail@dbrgn.ch>
-    sub   ed25519/0x73574DD095640FCF 2022-11-19 [S]
+pub   ed25519 2025-07-17 [SC] [expires: 2028-07-16]
+      3227294C801DD72CB40C8DD57D9DE58DF5BBBA0D
+uid           [ultimate] Sandeep Dhameshia <sandeep.dhameshia@gmail.com>
+sub   cv25519 2025-07-17 [E] [expires: 2028-07-16]
 
 
 ## Local Testing
@@ -100,8 +99,7 @@ Include it in your project like this:
 
 ## License
 
-    Copyright (c) 2019-2022 Threema GmbH
-    Copyright (c) 2022-2023 Danilo Bargen
+    Copyright (c) 2024-2025 Sandeep Dhameshia
 
     Licensed under the Apache License, Version 2.0, <see LICENSE-APACHE file>
     or the MIT license <see LICENSE-MIT file>, at your option. This file may not be

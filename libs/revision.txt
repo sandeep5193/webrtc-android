@@ -1,29 +1,50 @@
-commit eef098d1c7d50613d8bff2467d674525a9d0c57c
-Author:     Henrik Boström <hbos@webrtc.org>
-AuthorDate: Mon Sep 19 11:33:23 2022 +0200
+commit 8d78f5de6c27b2c793039989ea381f1428fb0100
+Author:     Harald Alvestrand <hta@webrtc.org>
+AuthorDate: Mon Feb 17 18:06:32 2025 +0000
 Commit:     WebRTC LUCI CQ <webrtc-scoped@luci-project-accounts.iam.gserviceaccount.com>
-CommitDate: Tue Oct 4 08:17:27 2022 +0000
+CommitDate: Thu Feb 20 05:35:29 2025 -0800
 
-    [Merge-107] [Stats] Avoid DCHECK crashing if SSRCs are not unique.
+    [Merge M134] Fix codec collision on reoffer after munged codec
     
-    To properly handle SSRC collisions in non-BUNDLE we need to change how
-    RTP stats IDs are generated, but that is a riskier change to be dealt
-    with in a separate CL.
+    This reverts commit 20bd702ebeb13a709832463fe5aadd623b7dc71b.
     
-    For now, we just make sure that crashing is not a possibility during
-    SSRC collisions as a mitigation for https://crbug.com/1361612. This is
-    achieved by adding a TryAddStats() method to RTCStatsReport returning
-    whether successful.
+    Reason for revert: Fixed test to not fail when AV1 is missing
     
-    (cherry picked from commit da6297dc53cb2eaae7b1c5381652de9d707a7d48)
+    Original change's description:
+    > Revert "Fix codec collision on reoffer after munged codec on offer."
+    >
+    > This reverts commit b9ddaa154b91b5d1cbe38bf38fce544a87e00d1a.
+    >
+    > Reason for revert: Downstream failure.
+    >
+    > Original change's description:
+    > > Fix codec collision on reoffer after munged codec on offer.
+    > >
+    > > Bug: chromium:395077842
+    > > Change-Id: I7665e593fa0f6883150363cb75103facd62f4fea
+    > > Reviewed-on: https://webrtc-review.googlesource.com/c/src/+/377141
+    > > Reviewed-by: Henrik Boström <hbos@webrtc.org>
+    > > Commit-Queue: Harald Alvestrand <hta@webrtc.org>
+    > > Cr-Commit-Position: refs/heads/main@{#43889}
+    >
+    > Bug: chromium:395077842
+    > Change-Id: I10184a0d521add123838861a5c5e7929864537bb
+    > Reviewed-on: https://webrtc-review.googlesource.com/c/src/+/377500
+    > Bot-Commit: rubber-stamper@appspot.gserviceaccount.com <rubber-stamper@appspot.gserviceaccount.com>
+    > Reviewed-by: Jeremy Leconte <jleconte@webrtc.org>
+    > Commit-Queue: Harald Alvestrand <hta@webrtc.org>
+    > Reviewed-by: Henrik Boström <hbos@webrtc.org>
+    > Cr-Commit-Position: refs/heads/main@{#43901}
     
-    Bug: chromium:1361612
-    Change-Id: I8577ae4c84a7c1eb3c7527e9efd8d1b0254269a3
-    Reviewed-on: https://webrtc-review.googlesource.com/c/src/+/275766
-    Reviewed-by: Harald Alvestrand <hta@webrtc.org>
-    Commit-Queue: Henrik Boström <hbos@webrtc.org>
-    Cr-Original-Commit-Position: refs/heads/main@{#38197}
-    Reviewed-on: https://webrtc-review.googlesource.com/c/src/+/277900
-    Reviewed-by: Evan Shrubsole <eshr@webrtc.org>
-    Cr-Commit-Position: refs/branch-heads/5304@{#4}
-    Cr-Branched-From: 024bd84ca1cf7d3650c27912a3b5bfbb54da152a-refs/heads/main@{#38083}
+    (cherry picked from commit 4aeab708bb9bd41f5626b05965bfd13fe8a6c458)
+    
+    Bug: chromium:395077842, chromium:397067501
+    Change-Id: I3ba5cacebc7eb608edffea2de54cf1c1e9355a81
+    Reviewed-on: https://webrtc-review.googlesource.com/c/src/+/377281
+    Reviewed-by: Henrik Boström <hbos@webrtc.org>
+    Commit-Queue: Harald Alvestrand <hta@webrtc.org>
+    Cr-Original-Commit-Position: refs/heads/main@{#43907}
+    Reviewed-on: https://webrtc-review.googlesource.com/c/src/+/377823
+    Reviewed-by: Fredrik Solenberg <solenberg@webrtc.org>
+    Cr-Commit-Position: refs/branch-heads/6998@{#1}
+    Cr-Branched-From: 9c56cb3edae7d5e222eb643a43846dca7fa6a1c5-refs/heads/main@{#43845}

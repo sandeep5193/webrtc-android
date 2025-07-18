@@ -1,10 +1,10 @@
 buildscript {
     repositories {
-        jcenter()
         google()
     }
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.3'
+        classpath 'com.android.tools.build:gradle:8.9.0'
     }
 }
 
@@ -14,86 +14,76 @@ plugins {
 }
 
 ext {
-    groupId = 'dev.bargen'
-    webrtcVersion = '115'
-    libraryVersion = '115.0.0'
+    groupId = 'io.github.sandeep5193'
+    webrtcVersion = '134'
+    libraryVersion = '134.0.0'
 }
 
 apply plugin: 'com.android.library'
 
-// Android configuration
 android {
-    compileSdkVersion 32
-    buildToolsVersion "29.0.3"
+    namespace = 'dev.bargen.webrtc'
+
+    compileSdkVersion 35
+    buildToolsVersion '35.0.0'
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 32
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion 21
     }
+
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    lintOptions {
-        abortOnError false
-    }
+
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
         }
     }
+
     packagingOptions {
         exclude 'META-INF/NOTICE'
         exclude 'META-INF/LICENSE'
     }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    publishing {
+        singleVariant('release')
     }
 }
 
-// In this section you declare where to find the dependencies of your project
 repositories {
-    jcenter()
     google()
+    mavenCentral()
 }
 
-// In this section you declare the dependencies for your production and test code
 dependencies {
-    // LibWebRTC
     implementation files('libs/libwebrtc.jar')
-    // Test dependencies
-    testImplementation 'junit:junit:4.13.2'
 }
 
-// Note: Because the android components are created only during the
-// afterEvaluate phase, you must configure your publications using the
-// afterEvaluate() lifecycle method.
 afterEvaluate {
     publishing {
         publications {
-            release(MavenPublication) {
-                from components.release
+            maven(MavenPublication) {
+                groupId = 'io.github.sandeep5193'
+                artifactId = 'webrtc-android'
+                version = "134.0.0"
 
-                artifact androidSourcesJar
-                artifact androidJavadocsJar
-
-                groupId = project.ext.groupId
-                artifactId = project.name
-                version = project.ext.libraryVersion
+                from components.findByName('release')
 
                 pom {
                     name = 'WebRTC for Android'
-                    description = "A vanilla WebRTC m${project.ext.webrtcVersion} build for Android"
-                    url = 'https://github.com/dbrgn/webrtc-android'
+                    description = "WebRTC M${project.ext.webrtcVersion} builds for Android, without any patches applied."
+                    url = 'https://github.com/sandeep5193/webrtc-android'
 
                     scm {
-                        url = 'https://github.com/dbrgn/webrtc-android'
+                        url = 'https://github.com/sandeep5193/webrtc-android'
                     }
 
                     licenses {
@@ -109,9 +99,9 @@ afterEvaluate {
 
                     developers {
                         developer {
-                            id = 'db'
-                            name = 'Danilo Bargen'
-                            email = 'mail@bargen.dev'
+                            id = 'sd'
+                            name = 'Sandeep Dhameshia'
+                            email = 'sandeep.dhameshia@gmail.com'
                         }
                     }
                 }
@@ -120,39 +110,8 @@ afterEvaluate {
 
         repositories {
             maven {
-                def releasesRepoUrl = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
-                def snapshotsRepoUrl = 'https://s01.oss.sonatype.org/content/repositories/snapshots'
-                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-                if (project.hasProperty('ossrhUsername') && project.hasProperty('ossrhPassword')) {
-                    credentials {
-                        username ossrhUsername
-                        password ossrhPassword
-                    }
-                }
+                url = layout.buildDirectory.dir('staging-deploy')
             }
         }
     }
-
-    signing {
-        useGpgCmd() // Use gpg-agent. For config options, see `gradle.properties`.
-        sign publishing.publications.release
-    }
-}
-
-task androidJavadocs(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
-    archiveClassifier.set('javadoc')
-    from androidJavadocs.destinationDir
-}
-task androidSourcesJar(type: Jar) {
-    archiveClassifier.set('sources')
-    from android.sourceSets.main.java.srcDirs
-}
-
-artifacts {
-    archives androidSourcesJar
-    archives androidJavadocsJar
 }
