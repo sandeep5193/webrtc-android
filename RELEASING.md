@@ -4,13 +4,11 @@ Build:
 
     ./gradlew clean build
 
-Publish the library for staging locally
+Publish the library to maven central
 
-    ./gradlew publish
+    ./gradlew publishToMavenCentral
 
-Afterwards, go to build/staging-deply, sign all the files with gpg private key. javadoc and sources are not generated with current build, can be copied from previous builds as they won't change. 
-
-create a zip and deploy it manually https://central.sonatype.com/
+Afterward go to Deployments on the Central Portal [website](https://central.sonatype.com/publishing/deployments) and click "Publish" on the deployment.
 
 Add and commit:
 

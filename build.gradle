@@ -11,12 +11,7 @@ buildscript {
 plugins {
     id 'maven-publish'
     id 'signing'
-}
-
-ext {
-    groupId = 'io.github.sandeep5193'
-    webrtcVersion = '134'
-    libraryVersion = '134.0.0'
+    id "com.vanniktech.maven.publish" version "0.34.0"
 }
 
 apply plugin: 'com.android.library'
@@ -52,10 +47,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
-
-    publishing {
-        singleVariant('release')
-    }
 }
 
 repositories {
@@ -65,53 +56,4 @@ repositories {
 
 dependencies {
     implementation files('libs/libwebrtc.jar')
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            maven(MavenPublication) {
-                groupId = 'io.github.sandeep5193'
-                artifactId = 'webrtc-android'
-                version = "134.0.0"
-
-                from components.findByName('release')
-
-                pom {
-                    name = 'WebRTC for Android'
-                    description = "WebRTC M${project.ext.webrtcVersion} builds for Android, without any patches applied."
-                    url = 'https://github.com/sandeep5193/webrtc-android'
-
-                    scm {
-                        url = 'https://github.com/sandeep5193/webrtc-android'
-                    }
-
-                    licenses {
-                        license {
-                            name = 'The Apache License, Version 2.0'
-                            url = 'LICENSE-APACHE'
-                        }
-                        license {
-                            name = 'The MIT License'
-                            url = 'LICENSE-MIT'
-                        }
-                    }
-
-                    developers {
-                        developer {
-                            id = 'sd'
-                            name = 'Sandeep Dhameshia'
-                            email = 'sandeep.dhameshia@gmail.com'
-                        }
-                    }
-                }
-            }
-        }
-
-        repositories {
-            maven {
-                url = layout.buildDirectory.dir('staging-deploy')
-            }
-        }
-    }
 }
